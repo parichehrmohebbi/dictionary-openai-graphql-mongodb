@@ -1,6 +1,4 @@
 import { MongoClient, Db } from "mongodb";
-export * from "./types";
-import { WordDbObject } from "./types";
 
 export let client: MongoClient;
 export let database: Db;

@@ -1,41 +1,22 @@
 import { gql } from "@apollo/client";
-import { useWordQuery } from "../src/graphql/types";
 
 interface Props {
   wordId: string;
 }
 
-gql`
-  query word($wordId: ID!) {
-    word(wordId: $wordId) {
-      title
-      description
-      author
-      relatedLinks
-      relatedTopics
-    }
-  }
-`;
-
 const WordRow = (props: Props) => {
-  const { wordId } = props;
-  const { loading, data } = useWordQuery({
-    variables: {
-      wordId,
-    },
-  });
-  let content = <td colSpan={2}>Loading ...</td>;
-  if (!loading && data) {
-    const { title, description, author, relatedLinks, relatedTopics } =
-      data.word;
-    content = (
+  const { word } = props;
+
+  const { title, description, author, relatedLinks, relatedTopics } = word;
+
+  return (
+    <tr>
       <>
         <td>{title}</td>
         <td>{description}</td>
       </>
-    );
-  }
-  return <tr>{content}</tr>;
+    </tr>
+  );
 };
 
 export default WordRow;

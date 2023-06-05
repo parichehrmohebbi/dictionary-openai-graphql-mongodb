@@ -22,11 +22,11 @@ input UpdateWordInput {
   author: String!
 }
 
-type Word {
-  _id: String!
-  title: String!
-  description: String!
-  relatedLinks: [String!]
-  relatedTopics: [String!]
-  author: String!
+type Word @entity {
+  wordId: ID! @id
+  title: String! @column
+  description: String! @column
+  relatedLinks: [String!] @column
+  relatedTopics: [String!] @column
+  author: String! @column
 }
