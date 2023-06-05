@@ -1,20 +1,10 @@
 import { ApolloServer } from "@apollo/server";
-import "graphql-import-node";
-import typeDefs from "@src/graphql/schema.graphql";
-import resolvers from "@src/graphql/resolvers";
 import { startServerAndCreateNextHandler } from "@as-integrations/next";
-import { DIRECTIVES } from "@graphql-codegen/typescript-mongodb";
-
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+import typeDefs from "@src/graphql/types";
+import resolvers from "@src/graphql/resolvers";
 
 const apolloServer = new ApolloServer({
-  introspection: true,
-  typeDefs: [DIRECTIVES, typeDefs],
+  typeDefs,
   resolvers,
 });
-
 export default startServerAndCreateNextHandler(apolloServer);
