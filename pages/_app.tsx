@@ -1,21 +1,13 @@
 import "@styles/globals.css";
 import type { AppProps } from "next/app";
-import {
-  ApolloProvider,
-  ApolloClient,
-  HttpLink,
-  InMemoryCache,
-} from "@apollo/client";
-import fetch from "node-fetch"; // Use node-fetch here to allow SSR
+import apolloClient from "@src/apollo/client";
+import { ApolloProvider } from "@apollo/client";
 
-const client = new ApolloClient({
-  link: new HttpLink({ uri: "/api/graphql", fetch: fetch as any }),
-  cache: new InMemoryCache(),
-});
+import "@styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={apolloClient}>
       <Component {...pageProps} />
     </ApolloProvider>
   );
