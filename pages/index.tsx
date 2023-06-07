@@ -5,6 +5,8 @@ import Word from "@src/graphql/schema.graphql";
 import useSWR from "swr";
 import { useState, useEffect } from "react";
 import Search from "@components/word/search";
+import WordList from "@components/word/wordList";
+import StatusText from "@components/word/statusText";
 
 const fetchWordsByName = async ({ url, searchedtxt }) => {
   const { data } = await apolloClient.query({
@@ -37,12 +39,7 @@ const Index = () => {
     (args) => fetchWordsByName(args)
   );
 
-  const wordElements = data?.map((w: any, i: Int32Array) => {
-    return <WordRow word={w} key={w._id} />;
-  });
-
   const searchChanged = (e: any) => {
-    console.log("eeee", e.target.value);
     setListVisible(true);
     setSearchedText(e.target.value);
   };
@@ -54,10 +51,9 @@ const Index = () => {
         searchedText={searchedText}
         setSearchedText={setSearchedText}
       ></Search>
-      {!data && <p>loading...</p>}
-      {data?.length == 0 && <p>Mothing found!</p>}
-      {error && <p>error...</p>}
-      {data && data.length > 0 && <div>{wordElements}</div>}
+      {!data && !error && <StatusText message={"loading..."}></StatusText>}
+      {error && <StatusText message={"error..."}></StatusText>}
+      {listVisible && <WordList words={data}></WordList>}
     </div>
   );
 };
