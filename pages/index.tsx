@@ -1,14 +1,16 @@
 import apolloClient from "@src/apollo/client";
 import { gql } from "@apollo/client";
-import WordRow from "@components/wordRow";
+import WordRow from "@components/word/wordRow";
 import Word from "@src/graphql/schema.graphql";
 import useSWR from "swr";
+import { useState, useEffect } from "react";
+import Search from "@components/word/search";
 
-const fetcher = async () => {
+const fetchWordsByName = async ({ url, searchedtxt }) => {
   const { data } = await apolloClient.query({
     query: gql`
-      query Words {
-        words {
+      query WordsByTitle($searchedText: String) {
+        wordsByTitle(searchedText: $searchedText) {
           title
           relatedTopics
           relatedLinks {
@@ -21,28 +23,42 @@ const fetcher = async () => {
         }
       }
     `,
+    variables: { searchedText: searchedtxt },
   });
   //todo: error handling
-  return data.words;
+  return data.wordsByTitle;
 };
 
 const Index = () => {
-  const { data, error } = useSWR("words", fetcher);
+  const [listVisible, setListVisible] = useState(false);
+  const [searchedText, setSearchedText] = useState("");
+  const { data, error } = useSWR(
+    { url: "/api/wordsByTitle", searchedtxt: searchedText },
+    (args) => fetchWordsByName(args)
+  );
 
-  if (!data) return <p>loading...</p>;
-
-  if (error) return <p>error: {error.message}</p>;
-
-  const wordElements = data?.map((word, i) => {
-    return <WordRow word={word} key={word._id} />;
+  const wordElements = data?.map((w: any, i: Int32Array) => {
+    return <WordRow word={w} key={w._id} />;
   });
 
-  return data && data.length > 0 ? (
-    <table>
-      <tbody>{wordElements}</tbody>
-    </table>
-  ) : (
-    <div>No Words!</div>
+  const searchChanged = (e: any) => {
+    console.log("eeee", e.target.value);
+    setListVisible(true);
+    setSearchedText(e.target.value);
+  };
+
+  return (
+    <div className="lg:px-96 md:px-16 sm:px-5 py-20 w-screen">
+      <Search
+        onChange={searchChanged}
+        searchedText={searchedText}
+        setSearchedText={setSearchedText}
+      ></Search>
+      {!data && <p>loading...</p>}
+      {data?.length == 0 && <p>Mothing found!</p>}
+      {error && <p>error...</p>}
+      {data && data.length > 0 && <div>{wordElements}</div>}
+    </div>
   );
 };
 

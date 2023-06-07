@@ -13,6 +13,16 @@ const resolvers = {
       const collection = await getCollection();
       return collection.find().toArray();
     },
+    async wordsByTitle(parent, args, contextValue, info) {
+      const collection = await getCollection();
+      return await collection
+        .find({
+          title: {
+            $regex: new RegExp(`.*${args.searchedText}.*`, "i"),
+          },
+        })
+        .toArray();
+    },
   },
 };
 

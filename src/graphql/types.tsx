@@ -3,6 +3,7 @@ import { gql } from "graphql-tag";
 const typeDefs = gql`
   type Query {
     words: [Word]
+    wordsByTitle(searchedText: String): [Word]
   }
 
   type Link {
