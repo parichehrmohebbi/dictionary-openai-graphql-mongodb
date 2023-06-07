@@ -1,5 +1,5 @@
 type Query {
-  allWords: [Word!]!
+  allWords: Word![]!
   word(wordId: ID!): Word
 }
 
@@ -7,8 +7,8 @@ type Mutation {
   createWord(
     title: String!
     description: String!
-    relatedLinks: [String]
-    relatedTopics: [String]
+    relatedLinks: String[]
+    relatedTopics: String[]
     author: String!
   ): Word!
   updateWord(wordId: ID!, data: UpdateWordInput!): Word
@@ -17,8 +17,8 @@ type Mutation {
 input UpdateWordInput {
   title: String!
   description: String!
-  relatedLinks: [String]
-  relatedTopics: [String]
+  relatedLinks: String[]
+  relatedTopics: String[]
   author: String!
 }
 
@@ -26,7 +26,7 @@ type Word {
   _id: String!
   title: String!
   description: String!
-  relatedLinks: [String!]
-  relatedTopics: [String!]
+  relatedLinks: String![]
+  relatedTopics: String![]
   author: String!
 }
