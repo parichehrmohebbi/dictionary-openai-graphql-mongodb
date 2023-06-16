@@ -1,4 +1,4 @@
-A dictionary implemented using : Next.JS, GraphQL, MongoDB, Apollo, Tailwind CSS
+![Technology dictionary](public/screenshot.png)
 
 ## About this repository
 
