@@ -1,24 +1,33 @@
 import { Word } from "@src/dao/types";
-import React, { EventHandler, MouseEventHandler } from "react";
+import React, { EventHandler, MouseEventHandler, useContext } from "react";
+import WordContext from "@src/context/wordContext";
+import { useRouter } from "next/router";
 
 interface WordRowProps {
   onClick: Function;
-  word: Word;
+  wordInput: Word;
 }
 
-const WordRow: React.FC<WordRowProps> = ({ word, onClick }: WordRowProps) => {
-  const { title, description } = word;
+const WordRow: React.FC<WordRowProps> = ({ wordInput }: WordRowProps) => {
+  const { title, definition } = wordInput;
+  const { word, setWord } = useContext(WordContext);
+  const router = useRouter();
 
   return (
     <div
-      onClick={(e) => onClick(word)}
-      className="my-5 border-solid border rounded-lg border-grey-200 p-3 hover:border-grey-800"
+      onClick={(e) => {
+        setWord(wordInput);
+        router.push(`/${encodeURI(wordInput.title.toString())}`, undefined, {
+          shallow: true,
+        });
+      }}
+      className="my-5 border-solid border rounded-lg p-3 text-grey-300 hover:text-grey-800 border-grey-300 dark:border-grey-400 hover:border-grey-800  dark:hover:border-grey-200  dark:hover:text-white"
     >
-      <h1 className="text-grey-800 text-lg font-bold">{title}</h1>
-      <p>
-        {description.length > 100
-          ? description.substring(0, 99) + "..."
-          : description}
+      <h1 className=" text-lg font-bold">{title}</h1>
+      <p className="">
+        {definition.length > 100
+          ? definition.substring(0, 99) + "..."
+          : definition}
       </p>
     </div>
   );
