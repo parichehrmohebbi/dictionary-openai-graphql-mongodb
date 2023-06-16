@@ -4,6 +4,8 @@
 
 - This is a dictionary implemented using : Next.JS, GraphQL, MongoDB, Apollo, Tailwind CSS, TypeScript
 - You can find thechnology-related words with the definition, related links and more related topics in the dictionary
+- It supports both darkmode and light mode
+- It supports all screen sizes
 
 ## How to get it work
 
