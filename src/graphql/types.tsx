@@ -14,7 +14,7 @@ const typeDefs = gql`
   type Word {
     _id: String
     title: String
-    description: String
+    definition: String
     author: String
     relatedLinks: [Link]
     relatedTopics: [String]

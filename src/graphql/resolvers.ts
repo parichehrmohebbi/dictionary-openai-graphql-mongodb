@@ -1,10 +1,11 @@
 import { connect } from "@src/dao";
+import { Word } from "./generated/graphql";
 
 const dbPromise = connect();
 
 const getCollection = async () => {
   const db = await dbPromise;
-  return db.collection("words");
+  return db.collection<Word>("words");
 };
 
 const resolvers = {

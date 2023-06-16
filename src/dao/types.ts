@@ -9,7 +9,7 @@ export type Word = {
   _id: String;
   title: String;
   author: String;
-  description: String;
+  definition: String;
   relatedLinks?: Maybe<Link[]>;
   relatedTopics?: Maybe<String[]>;
 };
