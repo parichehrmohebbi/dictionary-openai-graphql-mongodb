@@ -10,7 +10,7 @@ A dictionary implemented using : Next.JS, GraphQL, MongoDB, Apollo, Tailwind CSS
 - run 'yarn' command to install all the dependencies
 - run 'yarn dev' to start the development environment on 'localhost:3000'
 - you can also go to localhost:3000/api/graphql to se apollo graphQL server
-- run 'yarn generate' to generate the types using graphql-codegen
+<!-- - run 'yarn generate' to generate the types using graphql-codegen -->
 
 ## More to know
 
@@ -25,4 +25,4 @@ A dictionary implemented using : Next.JS, GraphQL, MongoDB, Apollo, Tailwind CSS
 - <a href='https://tailwindcss.com/'>Tailwind CSS documentation</a>
 - <a href='https://www.mongodb.com/'>MongoDB documentation</a>
 - <a href='https://www.apollographql.com/docs/'>Apollo documentation</a>
-- <a href='https://the-guild.dev/graphql/codegen/docs/getting-started'>GrapgQL Code Generator documentation</a>
+<!-- - <a href='https://the-guild.dev/graphql/codegen/docs/getting-started'>GrapgQL Code Generator documentation</a> -->
