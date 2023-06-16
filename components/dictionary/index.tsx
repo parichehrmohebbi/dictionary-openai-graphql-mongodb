@@ -8,16 +8,18 @@ import WordContext from "@src/context/wordContext";
 import WordDetail from "@components/word/wordDetail";
 import { usePathname } from "next/navigation";
 
-const Dictionary = () => {
+type ContainerProps = {
+  children?: React.ReactNode;
+};
+
+const Dictionary: React.FC<ContainerProps> = (props: ContainerProps) => {
   const [searchedText, setSearchedText] = useState("");
   const { word, setWord } = useContext(WordContext);
 
   const path = usePathname();
 
   useEffect(() => {
-    console.log("sssss", path);
     const wordTitle = decodeURI(path?.substring(1));
-    console.log("sssss", path);
     if (wordTitle) setSearchedText(wordTitle);
     if (word) setSearchedText(word?.title.toString());
   }, [word, path]);

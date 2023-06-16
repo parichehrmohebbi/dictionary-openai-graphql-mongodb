@@ -20,7 +20,7 @@ const WordList = ({ words }: WordListProps) => {
             wordInput={w}
             key={w._id as Key}
             onClick={() => {
-              router.push(w.title, undefined, { shallow: false });
+              router.push(w.title.toString(), undefined, { shallow: false });
             }}
           />
         );

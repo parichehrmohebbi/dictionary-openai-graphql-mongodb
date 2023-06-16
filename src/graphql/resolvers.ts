@@ -1,5 +1,5 @@
 import { connect } from "@src/dao";
-import { Word } from "./generated/graphql";
+import { Word } from "@src/dao/types";
 
 const dbPromise = connect();
 
@@ -14,15 +14,16 @@ const resolvers = {
       const collection = await getCollection();
       return collection.find().toArray();
     },
-    async wordsByTitle(parent, { searchedText }, contextValue, info) {
-      console.log("searchedText", searchedText);
+    async wordsByTitle(parent: any, args: any) {
+      const { searchedText } = args;
       if (!searchedText || searchedText === "") return [];
       const collection = await getCollection();
       return await collection
         .find({
-          title: {
-            $regex: new RegExp(`.*${searchedText}.*`, "i"),
-          },
+          title: new RegExp(`.*${searchedText}.*`, "i"),
+          // title: {
+          //   $regex: new RegExp(`.*${searchedText}.*`, "i"),
+          // },
         })
         .toArray();
     },

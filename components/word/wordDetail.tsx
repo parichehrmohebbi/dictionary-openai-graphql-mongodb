@@ -19,7 +19,7 @@ const WordDetail: React.FC<WordDetailProps> = ({ word }: WordDetailProps) => {
             <hr className="dark:text-grey-800 text-grey-200 mt-10"></hr>
             <p className="text-grey-400 mt-5">Definition:</p>
             <p className="pl-5">{word?.definition}</p>
-            {word?.relatedLinks?.length > 0 && (
+            {word?.relatedLinks && word?.relatedLinks?.length > 0 && (
               <>
                 <hr className="dark:text-grey-800 text-grey-200 mt-10"></hr>
                 <p className="text-grey-400 mt-5">Related Links:</p>
@@ -31,7 +31,7 @@ const WordDetail: React.FC<WordDetailProps> = ({ word }: WordDetailProps) => {
                           <Link
                             className=" dark:text-grey-200 text-grey-800 hover:text-purple-400 dark:hover:text-purple-400"
                             target="_blank"
-                            href={link.url}
+                            href={link.url.toString()}
                           >
                             {link.title}
                           </Link>
@@ -42,7 +42,7 @@ const WordDetail: React.FC<WordDetailProps> = ({ word }: WordDetailProps) => {
               </>
             )}
 
-            {word?.relatedTopics?.length > 0 && (
+            {word?.relatedTopics && word?.relatedTopics?.length > 0 && (
               <>
                 <hr className="dark:text-grey-800 text-grey-200 mt-10"></hr>
                 <p className="text-grey-400 mt-5">Related Topics:</p>
