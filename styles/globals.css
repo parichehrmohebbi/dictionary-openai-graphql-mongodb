@@ -16,9 +16,9 @@
 
 html {
   min-height: 100%;
-  background: rgb(var(--background-rgb));
 }
 body {
   color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
   font: serif;
 }

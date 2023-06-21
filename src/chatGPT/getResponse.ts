@@ -8,7 +8,7 @@ export const chatGPTResponse = async (
   promptType: PromptType,
   technology: string
 ): Promise<Maybe<string>> => {
-  const prompt = promptType.replace("{0}", technology);
+  const prompt = promptType.replaceAll("{0}", technology);
 
   const messages: ChatCompletionRequestMessage[] = [];
   messages.push({ role: "user", content: prompt });

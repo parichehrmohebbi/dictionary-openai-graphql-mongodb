@@ -16,6 +16,9 @@ const WordDetail: React.FC<WordDetailProps> = ({ word }: WordDetailProps) => {
         {word && (
           <div className="text-grey-800 dark:text-grey-200">
             <h1 className="font-bold text-3xl  pt-10">{word?.title}</h1>
+            <h1 className="text-grey-300 text-sm  pt-5">
+              By{" " + word?.author}
+            </h1>
             <hr className="dark:text-grey-800 text-grey-200 mt-10"></hr>
             <p className="text-grey-400 mt-5">Definition:</p>
             <p className="pl-5">{word?.definition}</p>
@@ -52,7 +55,7 @@ const WordDetail: React.FC<WordDetailProps> = ({ word }: WordDetailProps) => {
                     return (
                       <div
                         key={i}
-                        className="whitespace-nowrap flex-wrap dark:text-grey-200 text-grey-800 hover:text-purple-400 dark:hover:text-purple-400 border border-grey-400 px-3 mr-3 rounded-xl"
+                        className="whitespace-nowrap mt-4 flex-wrap dark:text-grey-200 text-grey-800 hover:text-purple-400 dark:hover:text-purple-400 border border-grey-400 px-3 mr-3 rounded-xl"
                         onClick={() => {
                           router.push(
                             `/${encodeURI(topic.toString())}`,

@@ -26,7 +26,11 @@ const WordList = ({ words }: WordListProps) => {
         );
       })}
       {words?.length === 0 && (
-        <StatusText message={"Nothing found!"}></StatusText>
+        <StatusText
+          message={
+            "The Technology you are searching for was not found in our database!"
+          }
+        ></StatusText>
       )}
     </>
   );

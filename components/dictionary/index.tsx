@@ -7,6 +7,7 @@ import { GET_WORDS_BY_TITLE } from "@src/graphql/queries";
 import WordContext from "@src/context/wordContext";
 import WordDetail from "@components/word/wordDetail";
 import { usePathname } from "next/navigation";
+import AskChatGPT from "@components/chatGPTBox/askChatGPT";
 
 type ContainerProps = {
   children?: React.ReactNode;
@@ -30,7 +31,7 @@ const Dictionary: React.FC<ContainerProps> = (props: ContainerProps) => {
 
   const foundWords = data?.wordsByTitle;
 
-  const searchChanged = (e: any) => {
+  const searchChanged = async (e: any) => {
     setWord(null);
     setSearchedText(e.target.value);
   };
@@ -49,6 +50,9 @@ const Dictionary: React.FC<ContainerProps> = (props: ContainerProps) => {
       {error && <StatusText message={"error..."}></StatusText>}
       {!word && <WordList words={foundWords}></WordList>}
       {word && <WordDetail word={word}></WordDetail>}
+      {searchedText && !word && foundWords?.length == 0 && (
+        <AskChatGPT technologyToSearch={searchedText}></AskChatGPT>
+      )}
     </div>
   );
 };
