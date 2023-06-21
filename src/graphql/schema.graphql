@@ -4,17 +4,11 @@ type Query {
 }
 
 type Mutation {
-  createWord(
-    title: String!
-    definition: String!
-    relatedLinks: String[]
-    relatedTopics: String[]
-    author: String!
-  ): Word!
-  updateWord(wordId: ID!, data: UpdateWordInput!): Word
+  createWord(input: WordInput): Word!
+  updateWord(wordId: ID!, data: WordInput!): Word
 }
 
-input UpdateWordInput {
+input WordInput {
   title: String!
   definition: String!
   relatedLinks: String[]
@@ -22,11 +16,11 @@ input UpdateWordInput {
   author: String!
 }
 
-type Word @entity {
-  _id: String! @id
-  title: String! @column
-  definition: String! @column
-  relatedLinks: String![] @column
-  relatedTopics: String![] @column
-  author: String! @column
+type Word  {
+  _id: String! 
+  title: String! 
+  definition: String! 
+  relatedLinks: String![] 
+  relatedTopics: String![] 
+  author: String! 
 }
