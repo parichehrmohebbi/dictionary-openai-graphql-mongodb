@@ -1,5 +1,5 @@
 ![Technology dictionary](public/screenshot.png)
-![Technology dictionary](public/screenshot2.png)
+![ask chatgpt](public/screenshot2.png)
 
 ## About this repository
 
