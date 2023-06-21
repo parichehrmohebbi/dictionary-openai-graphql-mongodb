@@ -2,7 +2,7 @@ import { Configuration, OpenAIApi, ChatCompletionRequestMessage } from "openai";
 import { PromptType } from "./propmtType";
 import { Maybe } from "@src/dao/types";
 
-const CHATGPT_API_KEY = "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";
+const CHATGPT_API_KEY = "Your_API_KEY";
 
 export const chatGPTResponse = async (
   promptType: PromptType,
