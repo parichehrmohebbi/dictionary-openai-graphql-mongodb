@@ -6,18 +6,18 @@ import LoadingOverlay from "react-loading-overlay";
 import { useTheme } from "next-themes";
 
 interface AskChatGPTProps {
-  technologyToSearch: string;
+  wordToSearch: string;
 }
 
 const AskChatGPT: React.FC<AskChatGPTProps> = ({
-  technologyToSearch,
+  wordToSearch,
 }: AskChatGPTProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [word, setword] = useState<Maybe<Word>>(null);
   const { theme, setTheme } = useTheme();
 
   const submitQuestion = async () => {
-    const wordfinder = new WordFinder(technologyToSearch);
+    const wordfinder = new WordFinder(wordToSearch);
     try {
       setLoading(true);
       const foundWord: Maybe<Word> = await wordfinder.findWordAsync();

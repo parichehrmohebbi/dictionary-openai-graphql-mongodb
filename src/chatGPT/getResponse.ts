@@ -6,9 +6,9 @@ const CHATGPT_API_KEY = "Your_API_KEY";
 
 export const chatGPTResponse = async (
   promptType: PromptType,
-  technology: string
+  wordTitle: string
 ): Promise<Maybe<string>> => {
-  const prompt = promptType.replaceAll("{0}", technology);
+  const prompt = promptType.replaceAll("{0}", wordTitle);
 
   const messages: ChatCompletionRequestMessage[] = [];
   messages.push({ role: "user", content: prompt });
@@ -31,7 +31,7 @@ export const chatGPTResponse = async (
 
     return response?.content;
   } catch (error) {
-    console.error(`Failed to generate response for:${technology}`, error);
+    console.error(`Failed to generate response for:${wordTitle}`, error);
     return "";
   }
 };

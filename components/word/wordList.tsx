@@ -28,7 +28,7 @@ const WordList = ({ words }: WordListProps) => {
       {words?.length === 0 && (
         <StatusText
           message={
-            "The Technology you are searching for was not found in our database!"
+            "The word you are searching for was not found in our database!"
           }
         ></StatusText>
       )}

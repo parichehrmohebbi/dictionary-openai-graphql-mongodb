@@ -1,4 +1,4 @@
-![Technology dictionary](public/screenshot.png)
+![Dictionary](public/screenshot.png)
 ![ask chatgpt](public/Screenshot2.png)
 
 ## About this repository

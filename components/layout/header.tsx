@@ -8,7 +8,7 @@ function Header() {
     <header className="w-full py-5 px-1">
       <div className="container flex flex-wrap items-center justify-between py-3 ">
         <span className="self-center text-xl font-semibold whitespace-nowrap text-purple-400 ">
-          Technology Dictionary
+          Knowledge Dictionary
         </span>
 
         <div className="flex md:order-2">

@@ -51,7 +51,7 @@ const Dictionary: React.FC<ContainerProps> = (props: ContainerProps) => {
       {!word && <WordList words={foundWords}></WordList>}
       {word && <WordDetail word={word}></WordDetail>}
       {searchedText && !word && foundWords?.length == 0 && (
-        <AskChatGPT technologyToSearch={searchedText}></AskChatGPT>
+        <AskChatGPT wordToSearch={searchedText}></AskChatGPT>
       )}
     </div>
   );
