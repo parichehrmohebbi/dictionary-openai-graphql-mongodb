@@ -14,6 +14,7 @@
 - run 'yarn' command to install all the dependencies
 - run 'yarn dev' to start the development environment on 'localhost:3000'
 - you can also go to localhost:3000/api/graphql to se apollo graphQL server
+- you must import your own API_KEY for chatgpt to get the feature work
 
 ## More to know
 
@@ -28,3 +29,4 @@
 - <a href='https://tailwindcss.com/'>Tailwind CSS documentation</a>
 - <a href='https://www.mongodb.com/'>MongoDB documentation</a>
 - <a href='https://www.apollographql.com/docs/'>Apollo documentation</a>
+- <a href='https://platform.openai.com/docs/guides/gpt'>ChatGPT OpenAI documentation</a>
