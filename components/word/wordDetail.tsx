@@ -50,7 +50,7 @@ const WordDetail: React.FC<WordDetailProps> = ({ word }: WordDetailProps) => {
                 <hr className="dark:text-grey-800 text-grey-200 mt-10"></hr>
                 <p className="text-grey-400 mt-5">Related Topics:</p>
 
-                <div className="pl-5 pt-5 flex flex-wrap">
+                <div className="pl-5 flex flex-wrap">
                   {word?.relatedTopics?.map((topic, i) => {
                     return (
                       <div
