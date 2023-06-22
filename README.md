@@ -3,9 +3,10 @@
 
 ## About this repository
 
-- This is a dictionary implemented using : Next.JS, GraphQL, MongoDB, Apollo, Tailwind CSS, TypeScript
-- You can find thechnology-related words with the definition, related links and more related topics in the dictionary
+- This is a knowledge dictionary implemented using : Next.JS, GraphQL, MongoDB, Apollo, Tailwind CSS, TypeScript
+- You can find different topics with the definition, maximum 10 related links and 10 related topics in the dictionary
 - If the word is not found in my database, it will suggest you to find the definition using chatGPT and if so loades the definition,related links and related topics using openAI
+- if you click on any topic the dictionary will try to find it
 - It supports both dark mode and light mode
 - It supports all screen sizes
 
