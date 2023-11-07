@@ -18,7 +18,7 @@ export class WordFinder {
     if (response) {
       const word = JSON.parse(response);
       word.title = this.wordTitle;
-      word.author = "chatGPT";
+      word.author = "ChatGPT";
       return word;
     } else {
       return null;
