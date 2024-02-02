@@ -20,7 +20,7 @@ const Search: React.FC<SearchProps> = ({
         type="text"
         id="default-search"
         className="block p-4 pl-10 w-full text-xl  text-grey-800 dark:text-grey-200 bg-grey-200 dark:bg-grey-800 rounded-lg  focus:ring-grey-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 "
-        placeholder="Search Your Word"
+        placeholder="Search Your Word!"
         onChange={(e) => {
           setSearchedText(e.target.value);
           onChange(e);
